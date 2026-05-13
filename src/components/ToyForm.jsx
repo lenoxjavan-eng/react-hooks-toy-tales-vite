@@ -7,11 +7,14 @@ function ToyForm({ onAddToy }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (!name.trim() || !image.trim()) {
+    const trimmedName = name.trim();
+    const trimmedImage = image.trim();
+
+    if (!trimmedName || !trimmedImage) {
       return;
     }
 
-    onAddToy({ name: name.trim(), image: image.trim() }).then(() => {
+    onAddToy({ name: trimmedName, image: trimmedImage }).then(() => {
       setName("");
       setImage("");
     });
